@@ -1,4 +1,4 @@
-# Install script for directory: /home/kitsune/Yukkitsune/workspace/tasks/lab03/formatter_ex_lib
+# Install script for directory: /home/kitsune/Yukkitsune/workspace/projects/lab04/formatter_ex_lib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

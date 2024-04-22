@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/kitsune/Yukkitsune/workspace/tasks/lab03/formatter_ex_lib -I/home/kitsune/Yukkitsune/workspace/tasks/lab03/formatter_lib -I/home/kitsune/Yukkitsune/workspace/tasks/lab03/solver_lib
+CXX_INCLUDES = -I/home/kitsune/Yukkitsune/workspace/projects/lab04/formatter_ex_lib -I/home/kitsune/Yukkitsune/workspace/projects/lab04/formatter_lib -I/home/kitsune/Yukkitsune/workspace/projects/lab04/solver_lib
 
 CXX_FLAGS = -std=gnu++20
 

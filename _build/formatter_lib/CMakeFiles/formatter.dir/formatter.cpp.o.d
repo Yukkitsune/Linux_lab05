@@ -1,7 +1,7 @@
 formatter_lib/CMakeFiles/formatter.dir/formatter.cpp.o: \
- /home/kitsune/Yukkitsune/workspace/tasks/lab03/formatter_lib/formatter.cpp \
+ /home/kitsune/Yukkitsune/workspace/projects/lab04/formatter_lib/formatter.cpp \
  /usr/include/stdc-predef.h \
- /home/kitsune/Yukkitsune/workspace/tasks/lab03/formatter_lib/formatter.h \
+ /home/kitsune/Yukkitsune/workspace/projects/lab04/formatter_lib/formatter.h \
  /usr/include/c++/13/string /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/c++/13/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \

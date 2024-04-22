@@ -1,5 +1,5 @@
 CMakeFiles/equation.dir/solver_application/equation.cpp.o: \
- /home/kitsune/Yukkitsune/workspace/tasks/lab03/solver_application/equation.cpp \
+ /home/kitsune/Yukkitsune/workspace/projects/lab04/solver_application/equation.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/13/iostream \
  /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/c++/13/x86_64-redhat-linux/bits/c++config.h \
@@ -133,5 +133,5 @@ CMakeFiles/equation.dir/solver_application/equation.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc \
- /home/kitsune/Yukkitsune/workspace/tasks/lab03/formatter_ex_lib/formatter_ex.h \
- /home/kitsune/Yukkitsune/workspace/tasks/lab03/solver_lib/solver.h
+ /home/kitsune/Yukkitsune/workspace/projects/lab04/formatter_ex_lib/formatter_ex.h \
+ /home/kitsune/Yukkitsune/workspace/projects/lab04/solver_lib/solver.h

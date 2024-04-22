@@ -1,7 +1,7 @@
 formatter_ex_lib/CMakeFiles/formatter_ex.dir/formatter_ex.cpp.o: \
- /home/kitsune/Yukkitsune/workspace/tasks/lab03/formatter_ex_lib/formatter_ex.cpp \
+ /home/kitsune/Yukkitsune/workspace/projects/lab04/formatter_ex_lib/formatter_ex.cpp \
  /usr/include/stdc-predef.h \
- /home/kitsune/Yukkitsune/workspace/tasks/lab03/formatter_ex_lib/formatter_ex.h \
+ /home/kitsune/Yukkitsune/workspace/projects/lab04/formatter_ex_lib/formatter_ex.h \
  /usr/include/c++/13/string /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/c++/13/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \
@@ -132,4 +132,4 @@ formatter_ex_lib/CMakeFiles/formatter_ex.dir/formatter_ex.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc \
- /home/kitsune/Yukkitsune/workspace/tasks/lab03/formatter_lib/formatter.h
+ /home/kitsune/Yukkitsune/workspace/projects/lab04/formatter_lib/formatter.h

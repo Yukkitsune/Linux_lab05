@@ -1,7 +1,7 @@
 solver_lib/CMakeFiles/solver.dir/solver.cpp.o: \
- /home/kitsune/Yukkitsune/workspace/tasks/lab03/solver_lib/solver.cpp \
+ /home/kitsune/Yukkitsune/workspace/projects/lab04/solver_lib/solver.cpp \
  /usr/include/stdc-predef.h \
- /home/kitsune/Yukkitsune/workspace/tasks/lab03/solver_lib/solver.h \
+ /home/kitsune/Yukkitsune/workspace/projects/lab04/solver_lib/solver.h \
  /usr/include/c++/13/cmath /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/c++/13/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \
