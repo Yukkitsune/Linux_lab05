@@ -8,8 +8,9 @@ jobs:
       steps:
         - name: Checkout
           uses: actions/checkout@v4
-        - run: cmake -H. -B_build
-        - run: cmake --build _build
+        - run: |
+               cmake -H. -B_build
+               cmake --build _build
         - name: Configure and Build Project
           uses: threeal/cmake-action@v1.3.0
   Build-Project-Windows:
@@ -22,7 +23,9 @@ jobs:
             uses: microsoft/setup-msbuild@v1.0.2
           - run: |
               mkdir _build
-              cmake --build _build
+              cd _build
+              cmake ..
+              cmake --build .
           - name: Configure and Build Project
             uses: threeal/cmake-action@v1.3.0
 
