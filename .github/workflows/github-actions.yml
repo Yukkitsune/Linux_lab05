@@ -22,7 +22,7 @@ jobs:
             uses: microsoft/setup-msbuild@v1.0.2
           - run: mkdir _build
           - run: cd _build
-          - run: cmake ..
+          - run: cmake ../..
           - run: cmake --build .
           - name: Configure and Build Project
             uses: threeal/cmake-action@v1.3.0
