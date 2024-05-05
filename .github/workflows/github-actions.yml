@@ -21,8 +21,7 @@ jobs:
           - name: Set up MSBuild
             uses: microsoft/setup-msbuild@v1.0.2
           - run: mkdir _build
-          - run: cd _build
-          - run: cmake -H../.. -B.
+          - run: cmake -H. -B_build
           - run: cmake --build _build
           - name: Configure and Build Project
             uses: threeal/cmake-action@v1.3.0
