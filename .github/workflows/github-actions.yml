@@ -13,7 +13,7 @@ jobs:
 
       - name: Configure Project
         run: |
-          cmake -H. -B_build
+          cmake -H. -B_build -DBUILD_TESTS=ON
 
       - name: Build Project
         run: |
