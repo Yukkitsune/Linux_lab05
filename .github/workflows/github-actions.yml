@@ -11,6 +11,8 @@ jobs:
         - run: |
                cmake -H. -B_build
                cmake --build _build
+        - name: Run tests
+          run: ./_build/tests
         - name: Configure and Build Project
           uses: threeal/cmake-action@v1.3.0
   Build-Project-Windows:
@@ -26,6 +28,8 @@ jobs:
               cd _build
               cmake ..
               cmake --build .
+          - name: Run tests
+            run: ./_build/tests
           - name: Configure and Build Project
             uses: threeal/cmake-action@v1.3.0
 
