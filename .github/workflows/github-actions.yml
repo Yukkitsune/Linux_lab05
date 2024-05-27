@@ -13,7 +13,7 @@ jobs:
 
       - name: Configure Project
         run: |
-          cmake -H. -B_build -DBUILD_TESTS=ON
+          cmake -H. -B_build
 
       - name: Build Project
         run: |
@@ -46,7 +46,7 @@ jobs:
         run: |
           mkdir _build
           cd _build
-          cmake .. -DBUILD_TESTS=ON
+          cmake ..
 
       - name: Build Project
         run: |
