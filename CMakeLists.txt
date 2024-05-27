@@ -20,11 +20,8 @@ add_executable(hello_world ${CMAKE_CURRENT_SOURCE_DIR}/hello_world_application/h
 add_executable(equation ${CMAKE_CURRENT_SOURCE_DIR}/solver_application/equation.cpp)
 
 target_link_libraries(formatter_ex formatter)
-target_link_libraries(hello_world formatter_ex)
-target_link_libraries(equation formatter_ex)
-target_link_libraries(equation solver)
-target_link_libraries(hello_world print_lib)
-target_link_libraries(equation print_lib)
+target_link_libraries(hello_world formatter_ex print_lib)
+target_link_libraries(equation formatter_ex solver print_lib)
 
 if(BUILD_TESTS)
   enable_testing()
