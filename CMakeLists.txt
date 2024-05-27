@@ -23,6 +23,8 @@ target_link_libraries(formatter_ex formatter)
 target_link_libraries(hello_world formatter_ex print_lib)
 target_link_libraries(equation formatter_ex solver print_lib)
 
+set(BUILD_TESTS ON)
+
 if(BUILD_TESTS)
   enable_testing()
   add_subdirectory(third-party/gtest)
