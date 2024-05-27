@@ -15,7 +15,7 @@ jobs:
           cmake -H. -B_build
           cmake --build _build
       - name: Run tests
-        run: _build/check
+        run: ./_build/check
 
   Build-Project-Windows:
     name: Build Project on Windows
@@ -32,4 +32,4 @@ jobs:
           cmake ..
           cmake --build .
       - name: Run tests
-        run: _build\Debug\check.exe
+        run: ./_build\Debug\check.exe
