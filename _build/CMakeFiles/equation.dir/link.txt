@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wno-maybe-uninitialized CMakeFiles/equation.dir/solver_application/equation.cpp.o -o equation  formatter_ex_lib/libformatter_ex.a solver_lib/libsolver.a libprint_lib.a formatter_lib/libformatter.a formatter_ex_lib/libformatter_ex.a formatter_lib/libformatter.a 

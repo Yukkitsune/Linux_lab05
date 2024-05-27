@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wno-maybe-uninitialized CMakeFiles/check.dir/tests/test1.cpp.o -o check  formatter_ex_lib/libformatter_ex.a solver_lib/libsolver.a third-party/gtest/googlemock/gtest/libgtest_main.a libprint_lib.a formatter_lib/libformatter.a formatter_ex_lib/libformatter_ex.a formatter_lib/libformatter.a third-party/gtest/googlemock/gtest/libgtest.a 
