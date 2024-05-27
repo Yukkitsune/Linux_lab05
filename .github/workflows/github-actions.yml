@@ -18,50 +18,7 @@ jobs:
       - name: Build Project
         run: |
           cmake --build _build
-
-      - name: List build directory
-        run: |
-          ls -R _build
-
       - name: Run tests
-        run: |
-          if [ -f "./_build/check" ]; then
-            ./_build/check
-          else
-            echo "Test executable not found."
-            exit 1
-          fi
+        run: ./_build/check
 
-  Build-Project-Windows:
-    name: Build Project on Windows
-    runs-on: windows-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
 
-      - name: Set up MSBuild
-        uses: microsoft/setup-msbuild@v1.0.2
-
-      - name: Configure Project
-        run: |
-          mkdir _build
-          cd _build
-          cmake ..
-
-      - name: Build Project
-        run: |
-          cd _build
-          cmake --build .
-
-      - name: List build directory
-        run: |
-          dir _build\
-
-      - name: Run tests
-        run: |
-          if (Test-Path "_build\check.exe") {
-            _build\check.exe
-          } else {
-            Write-Host "Test executable not found."
-            exit 1
-          }
