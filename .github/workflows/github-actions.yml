@@ -10,12 +10,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Configure and Build Project
+
+      - name: Configure Project
         run: |
           cmake -H. -B_build
+
+      - name: Build Project
+        run: |
           cmake --build _build
+
+      - name: List build directory
+        run: |
+          ls -R _build
+
       - name: Run tests
-        run: ./_build/check
+        run: |
+          if [ -f "./_build/check" ]; then
+            ./_build/check
+          else
+            echo "Test executable not found."
+            exit 1
+          fi
 
   Build-Project-Windows:
     name: Build Project on Windows
@@ -23,13 +38,30 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up MSBuild
         uses: microsoft/setup-msbuild@v1.0.2
-      - name: Configure and Build Project
+
+      - name: Configure Project
         run: |
           mkdir _build
           cd _build
           cmake ..
+
+      - name: Build Project
+        run: |
+          cd _build
           cmake --build .
+
+      - name: List build directory
+        run: |
+          dir _build\
+
       - name: Run tests
-        run: _build\\check.exe
+        run: |
+          if (Test-Path "_build\check.exe") {
+            _build\check.exe
+          } else {
+            Write-Host "Test executable not found."
+            exit 1
+          }
