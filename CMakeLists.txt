@@ -1,46 +1,33 @@
-cmake_minimum_required(VERSION 3.13)
-
-set(CMAKE_CXX_STANDARD 20)
+cmake_minimum_required(VERSION 3.4)
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-project(tests)
+project(bank_lib)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-maybe-uninitialized")
+add_subdirectory(third-party/gtest)
+enable_testing()
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/formatter_ex_lib)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/formatter_lib)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/solver_lib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/banking)
 
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/formatter_ex_lib)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/formatter_lib)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/solver_lib)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/banking)
+add_library(account_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/banking/Account.cpp)
+add_library(transaction_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/banking/Transaction.cpp)
 
-add_library(print_lib ${CMAKE_CURRENT_SOURCE_DIR}/include/print.cpp)
+include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+include_directories(${gmock_SOURCE_DIR}/include ${gmock_SOURCE_DIR}) 
 
-add_executable(hello_world ${CMAKE_CURRENT_SOURCE_DIR}/hello_world_application/hello_world.cpp)
-add_executable(equation ${CMAKE_CURRENT_SOURCE_DIR}/solver_application/equation.cpp)
+target_link_libraries(transaction_lib account_lib)
 
-target_link_libraries(formatter_ex formatter)
-target_link_libraries(hello_world formatter_ex print_lib)
-target_link_libraries(equation formatter_ex solver print_lib)
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/third-party/CMake-codecov/cmake" ${CMAKE_MODULE_PATH})
 
-if(BUILD_TESTS)
-  enable_testing()
-  include(FetchContent)
-  FetchContent_Declare(
-    googletest
-    URL https://github.com/google/googletest/archive/refs/tags/release-1.10.0.tar.gz
-  )
-  set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-  FetchContent_MakeAvailable(googletest)
-  file(GLOB TEST_SOURCES tests/*.cpp)
-  add_executable(check ${TEST_SOURCES})
-  target_link_libraries(check formatter_ex solver gtest_main print_lib banking)
-  target_compile_options(gtest PRIVATE -Wno-error=maybe-uninitialized)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-error=maybe-uninitialized")
-  include(GoogleTest)
-  gtest_discover_tests(check)
-endif()
+file(GLOB SRC testing/*.cpp)
+
+add_executable(test1 ${SRC})
+target_link_libraries(test1 gtest gtest_main gmock account_lib transaction_lib)
+add_test(NAME test1 COMMAND test1)
+
+set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+find_package(codecov)
+add_coverage(test1)
+list(APPEND LCOV_REMOVE_PATTERNS "'${PROJECT_SOURCE_DIR}/testing/test*'")
+coverage_evaluate()
