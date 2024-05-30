@@ -1,9 +1,3 @@
 [submodule "third-party/gtest"]
 	path = third-party/gtest
 	url = https://github.com/google/googletest
-[submodule "CMake-codecov"]
-	path = CMake-codecov
-	url = https://github.com/RWTH-ELP/CMake-codecov.git
-[submodule "third-party/CMake-codecov"]
-	path = third-party/CMake-codecov
-	url = https://github.com/RWTH-ELP/CMake-codecov.git
