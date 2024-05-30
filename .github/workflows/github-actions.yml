@@ -1,7 +1,7 @@
 name: GitHub Actions
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   Build-Project-Linux:
@@ -15,13 +15,13 @@ jobs:
         uses: sudo apt-get install -y cmake
 
       - name: Configure Project
-        run: cmake -H. -B_build -DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Debug
+        run: cmake -H. -B_build -DBUILD_TESTS=ON
 
       - name: Build Project
         run: cmake --build _build
 
       - name: Run tests
-        run: ctest --test-dir _build --output-on-failure
+        run: ./_build/check
 
       - name: Install lcov
         run: sudo apt-get install lcov
