@@ -20,7 +20,8 @@ target_link_libraries(transaction_lib account_lib)
 file(GLOB SRC testing/*.cpp)
 
 add_executable(test1 ${SRC})
-target_link_libraries(test1 gtest gtest_main gmock account_lib transaction_lib)
+target_link_libraries(test1 PRIVATE gtest gtest_main gmock account_lib transaction_lib)
+
 add_test(NAME test1 COMMAND test1)
 
 if (ENABLE_COVERAGE)
@@ -28,6 +29,7 @@ if (ENABLE_COVERAGE)
     target_link_libraries(test1 PRIVATE --coverage)
 endif()
 
+# Add custom target for gcovr
 find_program(GCOVR gcovr)
 if (GCOVR)
     add_custom_target(
