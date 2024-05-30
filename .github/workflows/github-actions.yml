@@ -1,4 +1,4 @@
-name: Test
+name: Lab 5
 run-name: Testing
 
 on: [push]
@@ -13,15 +13,21 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Install gcovr
+        run: sudo apt-get install gcovr
+
       - name: Build & test
         run: |
           cmake -H. -B_build
           cmake --build _build
           cmake --build _build --target test -- ARGS=--verbose
 
+      - name: Generate coverage report
+        run: |
+          cmake --build _build --target gcovr
+
       - name: Report to Coveralls
-        uses: threeal/gcovr-action@v1.0.0
+        uses: coverallsapp/github-action@v2.1.2
         with:
-          excludes: third-party
-          coveralls-send: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: ./_build/coverage.info
