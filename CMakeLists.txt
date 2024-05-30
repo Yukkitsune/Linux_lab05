@@ -28,12 +28,9 @@ target_link_libraries(test1 PRIVATE gtest gtest_main gmock account_lib transacti
 add_test(NAME test1 COMMAND test1)
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/third-party/CMake-codecov/cmake" ${CMAKE_MODULE_PATH})
-set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)
 find_package(codecov)
-if (ENABLE_COVERAGE)
-    add_coverage(test1)
-    list(APPEND LCOV_REMOVE_PATTERNS "'${PROJECT_SOURCE_DIR}/tests/test*'")
-    coverage_evaluate()
-endif
+add_coverage(test1)
+list(APPEND LCOV_REMOVE_PATTERNS "${PROJECT_SOURCE_DIR}/tests/test*")
+coverage_evaluate()
 
 set_target_properties(gtest PROPERTIES COMPILE_FLAGS "-Wno-error=maybe-uninitialized")
