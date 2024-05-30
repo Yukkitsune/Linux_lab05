@@ -1,5 +1,4 @@
-#include <gtest/gtest.h>
-#include "mock.cpp"
+#include "mock_class.cpp"
 
 using ::testing::AtLeast;
 
@@ -15,6 +14,7 @@ TEST(acc, mock) {
 
   EXPECT_CALL(test, ChangeBalance(100)).Times(AtLeast(1));
   test.ChangeBalance(100);
+  
 }
 
 TEST(acc, test) {
@@ -51,11 +51,13 @@ TEST(tr, test) {
   Transaction bank2;
   bank2.set_fee(500);
   try {
-    bank1.Make(dt, rt, -100);
+  bank1.Make(dt, rt, -100);
+
   } catch (std::invalid_argument& err) {}
 
   try {
-    bank1.Make(dt, rt, 0);
+  bank1.Make(dt, rt, 0);
+
   } catch (std::logic_error& err) {}
 
   EXPECT_EQ(false, bank2.Make(dt, rt, 200));
