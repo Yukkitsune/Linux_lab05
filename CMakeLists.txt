@@ -32,7 +32,7 @@ set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)
 find_package(codecov)
 if (ENABLE_COVERAGE)
     add_coverage(test1)
-    list(APPEND LCOV_REMOVE_PATTERNS "'${PROJECT_SOURCE_DIR}/tests/test*'")
+    list(APPEND LCOV_REMOVE_PATTERNS "${PROJECT_SOURCE_DIR}/tests/test*")
     coverage_evaluate()
 endif
 
