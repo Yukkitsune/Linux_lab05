@@ -6,7 +6,7 @@ class Account {
 
   // Virtual to test.
   virtual int GetBalance() const;
-
+  friend bool operator==(const Account ac1, const Account ac2); // Prior to testing
   // Virtual to test.
   virtual void ChangeBalance(int diff);
 

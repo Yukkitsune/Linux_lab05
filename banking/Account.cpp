@@ -20,3 +20,4 @@ void Account::Lock() {
 }
 
 void Account::Unlock() { is_locked_ = false; }
+bool operator==(const Account ac1, const Account ac2) {return (ac1.id_ == ac2.id_);}
