@@ -8,12 +8,11 @@ add_subdirectory(third-party/gtest)
 enable_testing()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/banking)
+include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+include_directories(${gmock_SOURCE_DIR}/include ${gmock_SOURCE_DIR})
 
 add_library(account_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/banking/Account.cpp)
 add_library(transaction_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/banking/Transaction.cpp)
-
-include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
-include_directories(${gmock_SOURCE_DIR}/include ${gmock_SOURCE_DIR}) 
 
 target_link_libraries(transaction_lib account_lib)
 
