@@ -6,9 +6,11 @@
 #include "Transaction.h"
 
 class MAccount : public Account {
+private:
+  int id;
+  int balance;
 public:
   MAccount(int id, int balance) : Account(id, balance) {}
-  
   MOCK_METHOD(int, GetBalance, (), (const, override));
   MOCK_METHOD(void, ChangeBalance, (int), (override));
   MOCK_METHOD(void, Lock, (), (override));
@@ -18,6 +20,5 @@ public:
 class MTransaction : public Transaction {
 public:
   MTransaction() : Transaction() {}
-  
   MOCK_METHOD(void, SaveToDataBase, (Account& from, Account& to, int sum), (override));
 };
