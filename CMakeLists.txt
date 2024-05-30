@@ -19,14 +19,14 @@ target_link_libraries(transaction_lib account_lib)
 
 file(GLOB SRC testing/*.cpp)
 
-add_executable(test ${SRC})
+add_executable(testt ${SRC})
 target_link_libraries(test PRIVATE gtest gtest_main gmock account_lib transaction_lib)
 
-add_test(NAME test COMMAND test1)
+add_test(NAME testt COMMAND testt)
 
 if (ENABLE_COVERAGE)
-    target_compile_options(test PRIVATE --coverage)
-    target_link_libraries(test PRIVATE --coverage)
+    target_compile_options(testt PRIVATE --coverage)
+    target_link_libraries(testt PRIVATE --coverage)
 endif()
 
 find_program(GCOVR gcovr)
@@ -34,6 +34,6 @@ if (GCOVR)
     add_custom_target(
         coverage
         COMMAND ${GCOVR} -r ${CMAKE_SOURCE_DIR} --exclude-directories='third-party' --branches --xml-pretty > coverage.xml
-        DEPENDS test
+        DEPENDS testt
     )
 endif()
