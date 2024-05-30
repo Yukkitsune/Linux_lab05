@@ -4,24 +4,19 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(bank_lib)
 
-
 add_subdirectory(third-party/gtest)
 enable_testing()
-
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/banking)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 include_directories(${gmock_SOURCE_DIR}/include ${gmock_SOURCE_DIR})
-
 
 add_library(account_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/banking/Account.cpp)
 add_library(transaction_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/banking/Transaction.cpp)
 
 target_link_libraries(transaction_lib account_lib)
 
-
 file(GLOB SRC tests/*.cpp)
-
 
 add_executable(test1 ${SRC})
 target_link_libraries(test1 PRIVATE gtest gtest_main gmock account_lib transaction_lib)
