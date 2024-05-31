@@ -1,19 +1,23 @@
 name: Test
 run-name: Testing
-on: [push]
+
+on:[push]
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           submodules: recursive
-      - name: Build & test
+
+      - name: Build & Test
         run: |
           cmake -H. -B_build
           cmake --build _build
           cmake --build _build --target test -- ARGS=--verbose
+
       - name: Report to Coveralls
         uses: threeal/gcovr-action@v1.0.0
         with:
