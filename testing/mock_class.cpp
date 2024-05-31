@@ -6,7 +6,10 @@
 #include "Transaction.h"
 
 class MAccount : public Account {
-public:  // Ensure mock methods are public
+private:
+  int id;
+  int balance;
+public:
   MAccount(int id, int balance) : Account(id, balance) {}
   MOCK_METHOD(int, GetBalance, (), (const, override));
   MOCK_METHOD(void, ChangeBalance, (int), (override));
