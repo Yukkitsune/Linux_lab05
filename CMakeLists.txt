@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(bank_lib)
@@ -15,10 +15,10 @@ include_directories(${gmock_SOURCE_DIR}/include ${gmock_SOURCE_DIR})
 
 target_link_libraries(transaction_lib account_lib)
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/third-party/CMake-codecov/cmake" ${CMAKE_MODULE_PATH})
-
+set_target_properties(gtest PROPERTIES COMPILE_FLAGS "-Wno-error=maybe-uninitialized")
 file(GLOB SRC testing/*.cpp)
 
-add_executable(test1 ${SRC})
+add_executable(test1 ${CMAKE_CURRENT_SOURCE_DIR}/testing/test.cpp)
 target_link_libraries(test1 gtest gtest_main gmock account_lib transaction_lib)
 add_test(NAME test1 COMMAND test1)
 

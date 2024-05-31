@@ -83,4 +83,3 @@ TEST(tr, test) {
 
   EXPECT_EQ(dt.GetBalance(), 10000);
   EXPECT_EQ(rt.GetBalance(), 9999);
-}
