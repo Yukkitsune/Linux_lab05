@@ -1,5 +1,5 @@
-#include <gmock/gmock.h>
-#include <gtest/gtest.h>
+#include "../third-party/gtest/googlemock/include/gmock/gmock.h"
+#include <../third-party/gtest/googletest/include/gtest/gtest.h>
 #include <stdexcept>
 
 #include "Account.h"
