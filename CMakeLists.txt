@@ -20,7 +20,7 @@ file(GLOB SRC testing/*.cpp)
 add_executable(test1 ${SRC})
 target_link_libraries(test1 gtest gtest_main gmock account_lib transaction_lib)
 add_test(NAME test1 COMMAND test1)
-
+set_target_properties(gtest PROPERTIES COMPILE_FLAGS "-Wno-error=maybe-uninitialized")
 set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 find_package(codecov)
