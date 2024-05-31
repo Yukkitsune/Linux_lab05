@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 project(bank_lib)
 
 add_subdirectory(third-party/gtest)
+add_subdirectory(third-party/CMake-codecov)
 enable_testing()
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/banking)
 add_library(account_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/banking/Account.cpp)
