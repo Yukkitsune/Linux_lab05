@@ -1,15 +1,12 @@
-#include "../third-party/gtest/googlemock/include/gmock/gmock.h"
-#include <../third-party/gtest/googletest/include/gtest/gtest.h>
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
 #include <stdexcept>
 
 #include "Account.h"
 #include "Transaction.h"
 
 class MAccount : public Account {
-private:
-  int id;
-  int balance;
-public:
+public:  // Ensure mock methods are public
   MAccount(int id, int balance) : Account(id, balance) {}
   MOCK_METHOD(int, GetBalance, (), (const, override));
   MOCK_METHOD(void, ChangeBalance, (int), (override));
