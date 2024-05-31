@@ -1,0 +1,1 @@
+/usr/bin/c++  -O0 -g -fprofile-arcs -ftest-coverage CMakeFiles/test1.dir/testing/test.cpp.o -o test1  third-party/gtest/googlemock/gtest/libgtest.a third-party/gtest/googlemock/gtest/libgtest_main.a third-party/gtest/googlemock/libgmock.a libaccount_lib.a libtransaction_lib.a third-party/gtest/googlemock/gtest/libgtest.a libaccount_lib.a 

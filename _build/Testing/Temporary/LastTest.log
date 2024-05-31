@@ -1,0 +1,19 @@
+Start testing: May 31 23:24 MSK
+----------------------------------------------------------
+Unable to find executable: /home/kitsune/Yukkitsune/workspace/projects/lab05/_build/test1
+1/1 Testing: test1
+1/1 Test: test1
+Command: ""
+Directory: /home/kitsune/Yukkitsune/workspace/projects/lab05/_build
+"test1" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"test1" end time: May 31 23:24 MSK
+"test1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: May 31 23:24 MSK
